@@ -1,0 +1,31 @@
+<%= form_with(model: song, local: true) do |form| %>
+  <% if song.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(song.errors.count, "エラー") %>が発生しました:</h4>
+      <ul class="mb-0">
+        <% song.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :youtube_video_url, "YouTubeのURL", class: "form-label" %>
+    <%= form.text_field :youtube_video_url, class: "form-control", placeholder: "https://www.youtube.com/..." %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :title, "タイトル", class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "楽曲のタイトルを入力" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :channel_name, "チャンネル名", class: "form-label" %>
+    <%= form.text_field :channel_name, class: "form-control", placeholder: "YouTubeのチャンネル名" %>
+  </div>
+
+  <div class="d-grid">
+    <%= form.submit submit_label, class: "btn btn-primary" %>
+  </div>
+<% end %>

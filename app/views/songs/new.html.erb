@@ -1,0 +1,11 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card p-4 shadow" style="max-width: 600px; width: 100%;">
+    <h2 class="text-center mb-4">楽曲登録</h2>
+
+    <%= render 'form', song: @song, submit_label: "登録" %>
+
+    <div class="text-center mt-3">
+      <%= link_to '戻る', songs_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
