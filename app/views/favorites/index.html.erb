@@ -27,7 +27,7 @@
                 <p class="card-text text-muted">チャンネル: <%= song.channel_name %></p>
                 <div class="mt-auto d-flex justify-content-between align-items-center">
                   <div>
-                    <%= link_to "詳細", song_path(song), class: "btn btn-outline-primary btn-sm" %>
+                    <%= link_to "詳細", song_path(song), class: "btn btn-outline-primary btn-sm me-1" %>
                     <% if song.user == current_user %>
                       <%= link_to "削除", song_path(song), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" %>
                     <% end %>
