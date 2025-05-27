@@ -2,6 +2,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    session[:return_to] = request.fullpath
     @favorite_songs = current_user.favorite_songs.includes(:user)
   end
   

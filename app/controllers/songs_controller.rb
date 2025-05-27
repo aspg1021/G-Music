@@ -4,11 +4,13 @@ class SongsController < ApplicationController
 
   # GET /songs or /songs.json
   def index
+    session[:return_to] = request.fullpath
     @songs = Song.all
   end
 
   # ログイン中ユーザーの楽曲一覧
   def user_index
+    session[:return_to] = request.fullpath
     @songs = current_user.songs
   end
 

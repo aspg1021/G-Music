@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_one_attached :icon_image
   
   def display_icon_image
-    icon_image.attached? ? icon_image : "default_icon.png"
+    icon_image.attached? ? icon_image : "default-icon.png"
   end
 end

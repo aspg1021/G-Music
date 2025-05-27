@@ -6,6 +6,9 @@ class Song < ApplicationRecord
   # 入力用の仮想属性（DBに保存されない）
   attr_accessor :youtube_video_url
 
+  # バリデーション
+  validates :youtube_video_url, presence: { message: "を入力してください" }
+
   # バリデーション前に動画IDを抽出する
   before_validation :extract_youtube_video_id
 
@@ -18,12 +21,12 @@ class Song < ApplicationRecord
       uri = URI.parse(youtube_video_url)
 
       if uri.host.include?('youtube.com') && uri.query
-        # 例: https://www.youtube.com/watch?v=U0efMNTylX8
         params = Rack::Utils.parse_nested_query(uri.query)
         self.youtube_video_id = params['v']
       elsif uri.host.include?('youtu.be')
-        # 例: https://youtu.be/U0efMNTylX8
         self.youtube_video_id = uri.path.split('/')[1]
+      else
+        errors.add(:youtube_video_url, "がYouTubeのURLではありません")
       end
     rescue URI::InvalidURIError
       errors.add(:youtube_video_url, "が不正なURLです")

@@ -23,13 +23,12 @@
     <div>
       <p><strong>Title:</strong> <%= @song.title %></p>
       <p><strong>Channel name:</strong> <%= @song.channel_name %></p>
-      <p><strong>User ID:</strong> <%= @song.user_id %></p>
 
       <div class="mt-4">
         <% if @song.user == current_user %>
           <%= link_to 'Edit', edit_song_path(@song), class: "btn btn-primary me-2" %>
         <% end %>
-        <%= link_to 'Back', songs_path, class: "btn btn-secondary" %>
+        <%= link_to 'Back', session[:return_to] || songs_path, class: "btn btn-secondary" %>
       </div>
     </div>
 
