@@ -71,6 +71,7 @@ gem 'mutex_m'
 
 # 認証
 gem 'devise'
+gem 'devise-i18n'
 
 # YouTube API を使いたい場合
 gem 'google-api-client', '~> 0.53.0'

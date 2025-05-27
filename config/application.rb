@@ -18,5 +18,8 @@ module G_Music
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    # 追記
+    config.i18n.default_locale = :ja
   end
 end

@@ -1,5 +1,13 @@
 <div class="container d-flex justify-content-center align-items-center mt-5">
   <div class="card p-4 shadow" style="max-width: 400px; width: 100%;">
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
+
     <h2 class="text-center mb-4">ログイン</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
