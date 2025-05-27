@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
 
       # ⑤テストデータを作成しuser変数に入れる
       let!(:user) do
-        user = FactoryBot.build(:user)
+        user = FactoryBot.create(:user)
         user.icon_image.attach(
           io: File.open(Rails.root.join('spec/fixtures/files/sample-icon.png')),
           filename: 'sample-icon.png',
