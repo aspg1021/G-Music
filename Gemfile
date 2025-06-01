@@ -69,6 +69,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 追記
 gem 'psych', '~> 3.1'
+gem 'concurrent-ruby', '1.3.4'
 
 # rails gが動作しなかったため追記
 gem 'bigdecimal'
