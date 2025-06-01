@@ -1,5 +1,5 @@
 {
-  "name": "gamusho",
+  "name": "g-music",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
@@ -17,7 +17,7 @@
     "webpack-dev-server": "^3"
   },
   "engines": {
-    "node": "18.x",
+    "node": ">=18",
     "yarn": "1.x"
   }
 }
