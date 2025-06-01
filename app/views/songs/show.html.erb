@@ -1,0 +1,36 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success text-center" role="alert">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<div class="container mt-5 d-flex flex-column align-items-center">
+
+  <!-- 動画と説明文の幅を統一 -->
+  <div style="max-width: 600px; width: 100%;">
+
+    <!-- YouTube埋め込み動画 -->
+    <div class="ratio ratio-16x9 mb-4">
+      <iframe
+        src="https://www.youtube.com/embed/<%= @song.youtube_video_id %>"
+        title="<%= @song.title %>"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      ></iframe>
+    </div>
+
+    <!-- 詳細説明（左寄せ） -->
+    <div>
+      <p><strong>Title:</strong> <%= @song.title %></p>
+      <p><strong>Channel name:</strong> <%= @song.channel_name %></p>
+
+      <div class="mt-4">
+        <% if @song.user == current_user %>
+          <%= link_to 'Edit', edit_song_path(@song), class: "btn btn-primary me-2" %>
+        <% end %>
+        <%= link_to 'Back', session[:return_to] || songs_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+
+  </div>
+</div>

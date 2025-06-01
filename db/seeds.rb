@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user = User.create!(email: "test@example.com", password: "password")
+
+Song.create!(
+  [
+    {
+      title: "Daisy Crown",
+      youtube_video_id: "U0efMNTylX8",
+      channel_name: "Kotoha",
+      user: user
+    },
+    {
+      title: "Life Will Change",
+      youtube_video_id: "dsuJZx24V_A",
+      channel_name: "Lyn",
+      user: user
+    }
+  ]
+)

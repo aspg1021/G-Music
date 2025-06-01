@@ -1,0 +1,55 @@
+<div class="py-5 bg-light">
+  <div class="container">
+    <% if flash[:notice] %>
+      <p id="notice"><%= flash[:notice] %></p>
+    <% end %>
+    <div class="text-center mb-4">
+      <h1 class="mb-3">自分が登録した楽曲一覧</h1>
+      <p class="lead text-muted">
+        あなたが登録したゲーム楽曲の一覧です。
+      </p>
+
+      <%= link_to "新しい楽曲を登録する", new_song_path, class: "btn btn-primary mx-1" %>
+      <%= link_to "トップに戻る", root_path, class: "btn btn-secondary mx-1" %>
+    </div>
+
+    <% if @songs.any? %>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @songs.each do |song| %>
+          <div class="col">
+            <div class="card shadow-sm h-100">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/<%= song.youtube_video_id %>" 
+                        title="<%= song.title %>" 
+                        allowfullscreen>
+                </iframe>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title"><%= song.title %></h5>
+                <p class="card-text text-muted">チャンネル: <%= song.channel_name %></p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <div>
+                    <%= link_to "詳細", song_path(song), class: "btn btn-outline-primary btn-sm me-1" %>
+                    <%= link_to "削除", song_path(song), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-outline-danger btn-sm" %>
+                  </div>
+
+                  <div>
+                    <% if current_user %>
+                      <% if current_user.favorite_songs.exists?(song.id) %>
+                        <%= button_to "★", song_favorite_path(song), method: :delete, class: "btn btn-link text-decoration-none p-0 fs-4 text-warning", title: "お気に入り解除" %>
+                      <% else %>
+                        <%= button_to "☆", song_favorite_path(song), method: :post, class: "btn btn-link text-decoration-none p-0 fs-4 text-secondary", title: "お気に入り登録" %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="text-center mt-5">まだ楽曲が登録されていません。</p>
+    <% end %>
+  </div>
+</div>

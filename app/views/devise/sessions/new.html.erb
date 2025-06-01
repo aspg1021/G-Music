@@ -1,0 +1,40 @@
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <div class="card p-4 shadow" style="max-width: 400px; width: 100%;">
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
+
+    <h2 class="text-center mb-4">ログイン</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="mb-3">
+        <%= f.label :email, "メールアドレス", class: "form-label" %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password, "パスワード", class: "form-label" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      </div>
+
+      <div class="mb-3 form-check">
+        <%= f.check_box :remember_me, class: "form-check-input" %>
+        <%= f.label :remember_me, "ログイン状態を保持する", class: "form-check-label" %>
+      </div>
+
+      <div class="d-grid">
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <hr>
+
+    <div class="text-center">
+      <%= link_to "新規登録はこちら", new_registration_path(resource_name), class: "text-decoration-none" %>
+    </div>
+  </div>
+</div>
