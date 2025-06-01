@@ -12,13 +12,13 @@ Song.create!(
   [
     {
       title: "Daisy Crown",
-      youtube_video_id: "U0efMNTylX8",
-      channel_name: "Kotoha",
+      youtube_video_id: "https://www.youtube.com/watch?v=yHCWtVMqoig",
+      channel_name: "Empty old City",
       user: user
     },
     {
       title: "Life Will Change",
-      youtube_video_id: "dsuJZx24V_A",
+      youtube_video_id: "https://www.youtube.com/watch?v=dsuJZx24V_A",
       channel_name: "Lyn",
       user: user
     }
