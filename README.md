@@ -8,7 +8,7 @@
 ![トップページのイメージ](docs/top_screenshot.png)
 
 ## 3. サービスのURL  
-※現在開発中のため未デプロイ
+[G-Music](https://calm-forest-43832-8a9790781793.herokuapp.com/)
 
 ## 4. サービスの概要  
 このアプリは、ゲーム音楽ファンがYouTubeの楽曲を紹介・視聴できるプラットフォームです。  
@@ -41,7 +41,7 @@ YouTubeに公式・非公式問わず多くの楽曲が投稿されている一�
 
 ### インフラ・開発環境
 - Git / GitHub（バージョン管理）
-- Heroku（今後デプロイ予定）
+- Heroku
 
 ## 8. ER図
 ![ER図](docs/ER.png)
